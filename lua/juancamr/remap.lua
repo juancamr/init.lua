@@ -1,8 +1,9 @@
+local vim = vim
 local keymap = vim.keymap
-local options = { noremap = true, silent = true }
+local cmd = vim.cmd
 
 vim.g.mapleader = " "
-keymap.set("n", "<leader>pv", vim.cmd.Ex)
+keymap.set("n", "<leader>pv", cmd.Ex)
 
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -38,4 +39,4 @@ keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- plugins
 keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+keymap.set("n", "<leader>u", cmd.UndotreeToggle)
