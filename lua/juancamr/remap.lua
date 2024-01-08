@@ -25,7 +25,7 @@ keymap.set("i", "<C-c>", "<Esc>")
 
 keymap.set("n", "<leader>l", "iconsole.log()<Esc>i")
 
-keymap.set("n", "Q", "<nop>")
+keymap.set("n", "q", "<nop>")
 keymap.set("n", "<C-z>", "u")
 
 keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
@@ -36,7 +36,6 @@ keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-keymap.set("n", "<leader><leader>", function()
-	vim.cmd("so")
-end)
-
+-- plugins
+keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)

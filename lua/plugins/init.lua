@@ -26,5 +26,7 @@ return {
         config = function()
             require("lualine").setup()
         end
-    }
+    },
+    { "mbbill/undotree", cmd = "UndotreeToggle" },
+    { "eandrju/cellular-automaton.nvim", cmd = "CellularAutomaton" }
 }
