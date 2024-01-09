@@ -1,12 +1,5 @@
-local servers = { "lua_ls", "rust_analyzer", "pyright", "tsserver", "astro" }
+local servers = require("plugins.lsp.config.servers")
 
--- mason
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = servers
-})
-
--- lsp
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
