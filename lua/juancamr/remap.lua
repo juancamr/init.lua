@@ -25,6 +25,7 @@ keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 keymap.set("i", "<C-c>", "<Esc>")
 
 keymap.set("n", "<leader>l", "iconsole.log()<Esc>i")
+keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 
 keymap.set("n", "q", "<nop>")
 keymap.set("n", "<C-z>", "u")
@@ -38,5 +39,5 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- plugins
-keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
+keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>")
 keymap.set("n", "<leader>u", cmd.UndotreeToggle)
