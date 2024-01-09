@@ -27,6 +27,10 @@ return {
             require("lualine").setup()
         end
     },
+    {
+        "github/copilot.vim",
+        cmd = "Copilot"
+    },
     { "mbbill/undotree", cmd = "UndotreeToggle" },
     { "eandrju/cellular-automaton.nvim", cmd = "CellularAutomaton" }
 }
