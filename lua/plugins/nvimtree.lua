@@ -4,7 +4,7 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
-		vim.keymap.set("n", "<leader>pv", "<cmd>NvimTreeToggle<CR>")
+		vim.keymap.set("n", "<leader>pv", "<cmd>NvimTreeFindFileToggle<CR>")
 
 		require("nvim-tree").setup({
 			view = {
