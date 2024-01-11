@@ -34,10 +34,8 @@ return {
 			})
 		end,
 	},
-	{
-		"github/copilot.vim",
-		cmd = "Copilot",
-	},
+	{ "github/copilot.vim", cmd = "Copilot" },
+	{ "onsails/lspkind.nvim" },
 	{ "mbbill/undotree", cmd = "UndotreeToggle" },
 	{ "eandrju/cellular-automaton.nvim", cmd = "CellularAutomaton" },
 }
