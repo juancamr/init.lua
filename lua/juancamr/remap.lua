@@ -14,6 +14,9 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
 
+keymap.set("n", "<C-s>", "<cmd>wa<CR>")
+keymap.set("i", "<C-s>", "<cmd>wa<CR><Esc>")
+
 keymap.set("x", "<leader>p", [["_dP]])
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])

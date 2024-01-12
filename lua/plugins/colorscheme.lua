@@ -1,13 +1,24 @@
 return {
-    'rose-pine/neovim',
-    name = 'rose-pine' ,
-    lazy = false,
-    priority = 1000,
+	"rose-pine/neovim",
+	dependencies = {
+		"ellisonleao/gruvbox.nvim",
+	},
+	name = "rose-pine",
+	lazy = false,
+	priority = 1000,
 
-    config = function()
-        require("rose-pine").setup({
-            disable_background = true,
-        })
-        vim.cmd.colorscheme("rose-pine")
-    end
+	config = function()
+		require("rose-pine").setup({ disable_background = true })
+		require("gruvbox").setup({ transparent_mode = true })
+
+		function RosePine()
+			vim.cmd.colorscheme("rose-pine")
+		end
+
+		function GruvBox()
+			vim.cmd.colorscheme("gruvbox")
+		end
+
+		RosePine()
+	end,
 }

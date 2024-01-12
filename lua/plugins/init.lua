@@ -9,13 +9,16 @@ return {
 	},
 	{
 		"windwp/nvim-ts-autotag",
+		event = { "BufReadPre", "BufNewFile" },
+		lazy = true,
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
 	},
 	{
 		"numToStr/Comment.nvim",
-		lazy = false,
+		event = "BufReadPre",
+		lazy = true,
 		config = function()
 			require("Comment").setup()
 		end,
@@ -34,7 +37,14 @@ return {
 			})
 		end,
 	},
-	{ "github/copilot.vim", cmd = "Copilot" },
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end,
+	},
+	{ "github/copilot.vim", cmd = "Copilot", lazy = true, event = "InsertLeave" },
 	{ "onsails/lspkind.nvim" },
 	{ "mbbill/undotree", cmd = "UndotreeToggle" },
 	{ "eandrju/cellular-automaton.nvim", cmd = "CellularAutomaton" },
