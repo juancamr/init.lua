@@ -16,7 +16,7 @@ local diagnostic = vim.diagnostic
 keymap.set("n", "<leader>e", diagnostic.open_float)
 keymap.set("n", "[d", diagnostic.goto_prev)
 keymap.set("n", "]d", diagnostic.goto_next)
-keymap.set("n", "<leader>q", diagnostic.setloclist)
+keymap.set("n", "<leader>vl", diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

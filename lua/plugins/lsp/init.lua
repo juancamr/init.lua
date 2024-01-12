@@ -18,9 +18,18 @@ return {
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"L3MON4D3/LuaSnip",
+			"onsails/lspkind.nvim",
 		},
 		config = function()
 			require("plugins.lsp.config.cmp")
+		end,
+	},
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
 		end,
 	},
 }
