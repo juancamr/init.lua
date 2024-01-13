@@ -1,22 +1,18 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		dependencies = {
+			"ray-x/lsp_signature.nvim",
+		},
 		config = function()
 			require("plugins.lsp.config.lspconfig")
-		end,
-	},
-	{
-		"ray-x/lsp_signature.nvim",
-		event = "VeryLazy",
-		opts = {},
-		config = function(_, opts)
-			require("lsp_signature").setup(opts)
 		end,
 	},
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
 			"L3MON4D3/LuaSnip",
 			"onsails/lspkind.nvim",
 		},
@@ -25,11 +21,9 @@ return {
 		end,
 	},
 	{
-		"zbirenbaum/copilot.lua",
+		"github/copilot.vim",
 		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({})
-		end,
+		lazy = true,
+		event = "InsertLeave",
 	},
 }

@@ -2,6 +2,7 @@ local servers = require("plugins.lsp.config.servers")
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("lsp_signature").setup(opts)
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -18,16 +19,11 @@ keymap.set("n", "[d", diagnostic.goto_prev)
 keymap.set("n", "]d", diagnostic.goto_next)
 keymap.set("n", "<leader>vl", diagnostic.setloclist)
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
-		-- Enable completion triggered by <c-x><c-o>
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-		-- Buffer local mappings.
-		-- See `:help vim.lsp.*` for documentation on any of the below functions
 		local opts = { buffer = ev.buf }
 		keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		keymap.set("n", "gd", vim.lsp.buf.definition, opts)
