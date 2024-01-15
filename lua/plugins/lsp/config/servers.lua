@@ -1,7 +1,7 @@
 return {
-    "lua_ls",
-    "rust_analyzer",
-    "pyright",
-    "tsserver",
-    "astro"
+	"lua_ls",
+	"pyright",
+	"tsserver",
+	"astro",
+	"clangd",
 }

@@ -1,7 +1,5 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufWritePre" },
-	lazy = true,
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
@@ -9,10 +7,6 @@ return {
 				python = { "ruff_format" },
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
-			},
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
 			},
 		})
 		vim.keymap.set("n", "<leader>f", function()

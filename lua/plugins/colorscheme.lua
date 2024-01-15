@@ -11,6 +11,6 @@ return {
 		require("rose-pine").setup({ disable_background = true })
 		require("gruvbox").setup({ transparent_mode = true })
 
-		vim.cmd.colorscheme("gruvbox")
+		vim.cmd.colorscheme("rose-pine")
 	end,
 }

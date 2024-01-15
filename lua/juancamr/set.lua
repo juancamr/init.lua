@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
 
@@ -23,14 +24,10 @@ opt.incsearch = true
 opt.termguicolors = true
 
 opt.scrolloff = 8
-opt.signcolumn = "no"
+opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
 opt.updatetime = 50
 
 opt.colorcolumn = "80"
 opt.splitright = true
-
-opt.fillchars = {
-	eob = " ",
-}

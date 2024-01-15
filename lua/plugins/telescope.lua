@@ -17,6 +17,16 @@ return {
 			},
 		})
 
+		require("nvim-web-devicons").setup({
+			override_by_extension = {
+				["astro"] = {
+					icon = "󰬈",
+					color = "#FF0000",
+					name = "astro",
+				},
+			},
+		})
+
 		keymap.set("n", "<C-p>", builtin.find_files, {})
 		keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })

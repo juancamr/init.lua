@@ -2,10 +2,10 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		config = function()
+			local vim = vim
+			-- disable netrw
 			vim.g.loaded_netrw = 1
 			vim.g.loaded_netrwPlugin = 1
-
-			vim.keymap.set("n", "<leader>pv", "<cmd>NvimTreeFindFileToggle<CR>")
 
 			require("nvim-tree").setup({
 				view = {
@@ -16,7 +16,12 @@ return {
 						quit_on_open = true,
 					},
 				},
+				git = {
+					enable = false,
+				},
 			})
+
+			vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 		end,
 	},
 	{ "mbbill/undotree", cmd = "UndotreeToggle" },
