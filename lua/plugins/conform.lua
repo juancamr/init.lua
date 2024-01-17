@@ -3,13 +3,15 @@ return {
 	event = { "BufWritePre" },
 	lazy = true,
 	config = function()
-		local formatters = require("juancamr.utils").formatters
+		local fs = require("juancamr.utils").formatters
+		local prettier = { { fs.prettierd, fs.prettier } }
+
 		require("conform").setup({
 			formatters_by_ft = {
-				lua = formatters.lua,
-				python = formatters.python,
-				javascript = formatters.js,
-				typescript = formatters.js,
+				lua = { fs.stylua },
+				python = { fs.black, fs.isort },
+				javascript = prettier,
+				typescript = prettier,
 			},
 			format_on_save = {
 				timeout_ms = 500,

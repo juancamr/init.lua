@@ -4,24 +4,42 @@ M.servers = {
 	"lua_ls",
 	"pyright",
 	"tsserver",
-	"astro",
 	"clangd",
+	"astro",
 }
 
 M.formatters = {
-	lua = { "stylua" },
-	python = { "black" },
-	js = { "prettierd" },
+	stylua = "stylua",
+	black = "black",
+	isort = "isort",
+	prettier = "prettier",
+	prettierd = "prettierd",
 }
 
 M.get_formatters_list = function()
 	local formatters_list = {}
 	for _, formatter in pairs(M.formatters) do
-		for _, f in pairs(formatter) do
-			table.insert(formatters_list, f)
-		end
+		table.insert(formatters_list, formatter)
 	end
 	return formatters_list
 end
+
+M.treesitter_languages = {
+	"javascript",
+	"typescript",
+	"tsx",
+	"astro",
+	"python",
+	"lua",
+	"cpp",
+}
+
+M.extra_devicon_extensions = {
+	["astro"] = {
+		icon = "󰬈",
+		color = "#FF0000",
+		name = "astro",
+	},
+}
 
 return M

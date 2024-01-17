@@ -19,16 +19,6 @@ cmp.setup({
 		["<C-y>"] = cmp.mapping.confirm({ select = true }),
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
-	completion = {
-		completeopt = "menu,menuone,noinsert",
-	},
-	formatting = {
-		format = lspkind.cmp_format(),
-	},
-	window = {
-		documentation = cmp.config.window.bordered(),
-		completion = cmp.config.window.bordered({
-			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
-		}),
-	},
+	completion = { completeopt = "menu,menuone,noinsert" },
+	formatting = { format = lspkind.cmp_format() },
 })

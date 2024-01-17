@@ -2,7 +2,7 @@ local servers = require("juancamr.utils").servers
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("lsp_signature").setup(opts)
+require("lsp_signature").setup()
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({

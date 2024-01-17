@@ -20,10 +20,4 @@ return {
 			require("plugins.lsp.config.cmp")
 		end,
 	},
-	{
-		"github/copilot.vim",
-		cmd = "Copilot",
-		lazy = true,
-		event = "InsertLeave",
-	},
 }

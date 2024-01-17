@@ -5,26 +5,18 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		local keymap = vim.keymap
+		local utils = require("juancamr.utils")
 
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "node_modules" },
-				mappings = {
-					i = {
-						["<C-u>"] = false,
-					},
-				},
+				mappings = { i = { ["<C-u>"] = false } },
 			},
 		})
 
+		-- set icons to telescope
 		require("nvim-web-devicons").setup({
-			override_by_extension = {
-				["astro"] = {
-					icon = "󰬈",
-					color = "#FF0000",
-					name = "astro",
-				},
-			},
+			override_by_extension = utils.extra_devicon_extensions,
 		})
 
 		keymap.set("n", "<C-p>", builtin.find_files, {})
