@@ -20,6 +20,12 @@ keymap.set("x", "<leader>p", [["_dP]])
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
+-- remap navigate between buffers left and right
+keymap.set("n", "<C-g>", "<C-w>h")
+keymap.set("n", "<C-l>", "<C-w>l")
+
+keymap.set("n", "<leader>q", "<cmd>qa<CR>")
+
 keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
