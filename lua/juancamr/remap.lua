@@ -20,6 +20,9 @@ keymap.set("x", "<leader>p", [["_dP]])
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "<leader>Y", [["+Y]])
 
+keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
+keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
+
 keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 keymap.set("i", "<C-c>", "<Esc>")

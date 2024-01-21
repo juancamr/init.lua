@@ -1,45 +1,41 @@
 local M = {}
 
-M.servers = {
-	"lua_ls",
-	"pyright",
-	"tsserver",
-	"clangd",
-	"astro",
-}
-
-M.formatters = {
-	stylua = "stylua",
-	black = "black",
-	isort = "isort",
-	prettier = "prettier",
-	prettierd = "prettierd",
-}
-
 M.get_formatters_list = function()
 	local formatters_list = {}
-	for _, formatter in pairs(M.formatters) do
+	local formatters = require("juancamr.constants").formatters
+	for _, formatter in pairs(formatters) do
 		table.insert(formatters_list, formatter)
 	end
 	return formatters_list
 end
 
-M.treesitter_languages = {
-	"javascript",
-	"typescript",
-	"tsx",
-	"astro",
-	"python",
-	"lua",
-	"cpp",
-}
+M.lazy_load = function(plugin)
+	local vim = vim
+	vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+		group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
+		callback = function()
+			local file = vim.fn.expand("%")
+			local condition = file ~= "NvimTree_1" and file ~= "[lazy]" and file ~= ""
 
-M.extra_devicon_extensions = {
-	["astro"] = {
-		icon = "󰬈",
-		color = "#FF0000",
-		name = "astro",
-	},
-}
+			if condition then
+				vim.api.nvim_del_augroup_by_name("BeLazyOnFileOpen" .. plugin)
+
+				-- dont defer for treesitter as it will show slow highlighting
+				-- This deferring only happens only when we do "nvim filename"
+				if plugin ~= "nvim-treesitter" then
+					vim.schedule(function()
+						require("lazy").load({ plugins = plugin })
+
+						if plugin == "nvim-lspconfig" then
+							vim.cmd("silent! do FileType")
+						end
+					end, 0)
+				else
+					require("lazy").load({ plugins = plugin })
+				end
+			end
+		end,
+	})
+end
 
 return M

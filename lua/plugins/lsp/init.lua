@@ -1,6 +1,9 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+        init = function()
+            require("juancamr.utils").lazy_load("nvim-lspconfig")
+        end,
 		dependencies = {
 			"ray-x/lsp_signature.nvim",
 		},
@@ -10,6 +13,7 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+        event = "InsertEnter",
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",

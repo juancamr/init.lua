@@ -1,9 +1,8 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
-	lazy = true,
 	config = function()
-		local fs = require("juancamr.utils").formatters
+		local fs = require("juancamr.constants").formatters
 		local prettier = { { fs.prettierd, fs.prettier } }
 
 		require("conform").setup({

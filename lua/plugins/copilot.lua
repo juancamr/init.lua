@@ -1,5 +1,7 @@
 return {
 	"github/copilot.vim",
 	cmd = "Copilot",
-	lazy = false,
+	init = function()
+		require("juancamr.utils").lazy_load("copilot.vim")
+	end,
 }
