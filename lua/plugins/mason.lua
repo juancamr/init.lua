@@ -7,7 +7,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
-		local lspservers = require("juancamr.constants").lsp_servers
+		local lspservers = require("juancamr.utils").lsp_servers
 		local formatters = require("juancamr.utils").get_formatters_list()
 
 		require("mason").setup()

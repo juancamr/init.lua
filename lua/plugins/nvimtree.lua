@@ -2,7 +2,6 @@ return {
 	"nvim-tree/nvim-tree.lua",
 	lazy = false,
 	config = function()
-		local vim = vim
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
@@ -16,37 +15,28 @@ return {
 
 		require("nvim-tree").setup({
 			on_attach = on_attach,
-
 			view = { width = 45 },
 			actions = { open_file = { quit_on_open = true } },
 			git = { enable = false },
 			renderer = {
-				-- root_folder_label = false,
+				root_folder_label = false,
 				highlight_git = false,
 				highlight_opened_files = "none",
-
 				indent_markers = { enable = false },
-
 				icons = {
-					show = { git = false },
-
+					show = { git = false, folder = false, file = false },
 					glyphs = {
 						default = "󰈚",
 						symlink = "",
-						folder = {
-							default = "",
-							empty = "",
-							empty_open = "",
-							open = "",
-							symlink = "",
-							symlink_open = "",
-							arrow_open = "",
-							arrow_closed = "",
-						},
 					},
 				},
 			},
 		})
+
+		local api = require("nvim-tree.api")
+		api.events.subscribe(api.events.Event.FileCreated, function(file)
+			vim.cmd("edit " .. file.fname)
+		end)
 
 		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 	end,

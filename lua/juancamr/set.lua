@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
 
@@ -29,6 +30,4 @@ opt.updatetime = 50
 
 opt.colorcolumn = "80"
 opt.splitright = true
-
--- remove line separator between buffers
-opt.fillchars = { vert = " ", eob = " " }
+opt.fillchars = { eob = " ", vert = " " }

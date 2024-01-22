@@ -1,12 +1,42 @@
 local M = {}
 
+-- constants
+M.formatters = {
+	stylua = "stylua",
+	black = "black",
+	isort = "isort",
+	prettier = "prettier",
+	prettierd = "prettierd",
+}
+
+M.treesitter_languages = {
+	"javascript",
+	"typescript",
+	"tsx",
+	"astro",
+	"python",
+	"lua",
+	"cpp",
+	"css",
+	"html",
+	"json",
+}
+
+M.lsp_servers = {
+	"lua_ls",
+	"pyright",
+	"tsserver",
+	"clangd",
+	"astro",
+}
+
+-- functions
 M.get_formatters_list = function()
-	local formatters_list = {}
-	local formatters = require("juancamr.constants").formatters
-	for _, formatter in pairs(formatters) do
-		table.insert(formatters_list, formatter)
+	local formatters = {}
+	for _, formatter in pairs(M.formatters) do
+		table.insert(formatters, formatter)
 	end
-	return formatters_list
+	return formatters
 end
 
 M.lazy_load = function(plugin)

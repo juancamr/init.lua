@@ -1,4 +1,4 @@
-local servers = require("juancamr.constants").lsp_servers
+local servers = require("juancamr.utils").lsp_servers
 
 local lspconfig = require("lspconfig")
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
