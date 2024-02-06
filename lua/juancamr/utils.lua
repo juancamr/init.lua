@@ -3,8 +3,7 @@ local M = {}
 -- constants
 M.formatters = {
 	stylua = "stylua",
-	black = "black",
-	isort = "isort",
+	ruff = "ruff",
 	prettier = "prettier",
 	prettierd = "prettierd",
 }

@@ -15,7 +15,7 @@ return {
 
 		require("nvim-tree").setup({
 			on_attach = on_attach,
-			view = { width = 45 },
+			view = { width = 45, side = "right" },
 			actions = { open_file = { quit_on_open = true } },
 			git = { enable = false },
 			renderer = {

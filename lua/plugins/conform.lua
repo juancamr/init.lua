@@ -1,17 +1,20 @@
 return {
 	"stevearc/conform.nvim",
-	lazy = false,
+	event = "BufWrite",
 	config = function()
 		local fs = require("juancamr.utils").formatters
-		local prettier = { { fs.prettierd, fs.prettier } }
 		local conform = require("conform")
 
 		conform.setup({
 			formatters_by_ft = {
 				lua = { fs.stylua },
-				python = { fs.black, fs.isort },
-				javascript = prettier,
-				typescript = prettier,
+				python = { "ruff_format", "ruff_fix" },
+				javascript = { fs.prettierd },
+				typescript = { fs.prettierd },
+			},
+			format_on_save = {
+				timeout_ms = 500,
+				lsp_fallback = true,
 			},
 		})
 

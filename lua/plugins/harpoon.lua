@@ -26,7 +26,7 @@ return {
         keymap.set("n", "<C-n>", function()
             harpoon:list():select(3)
         end)
-        keymap.set("n", "<C-s>", function()
+        keymap.set("n", "<C-m>", function()
             harpoon:list():select(4)
         end)
     end,
