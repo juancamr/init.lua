@@ -27,6 +27,8 @@ M.lsp_servers = {
 	"tsserver",
 	"clangd",
 	"astro",
+	"html",
+	"htmx",
 }
 
 -- functions

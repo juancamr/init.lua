@@ -15,21 +15,15 @@ return {
 
 		require("nvim-tree").setup({
 			on_attach = on_attach,
-			view = { width = 45, side = "right" },
 			actions = { open_file = { quit_on_open = true } },
 			git = { enable = false },
+			view = { width = 40 },
 			renderer = {
 				root_folder_label = false,
 				highlight_git = false,
 				highlight_opened_files = "none",
 				indent_markers = { enable = false },
-				icons = {
-					show = { git = false, folder = false, file = false },
-					glyphs = {
-						default = "󰈚",
-						symlink = "",
-					},
-				},
+				icons = { show = { git = false, folder = false, file = false } },
 			},
 		})
 
@@ -38,6 +32,7 @@ return {
 			vim.cmd("edit " .. file.fname)
 		end)
 
-		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
+		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFile<CR>")
+		-- vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFile<CR><C-w>o")
 	end,
 }

@@ -6,21 +6,23 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		lazy = false,
 		config = function()
-            local builtin = require("telescope.builtin")
-            local keymap = vim.keymap
+			local builtin = require("telescope.builtin")
+			local keymap = vim.keymap
 
-            require("telescope").setup({
-                defaults = {
-                    file_ignore_patterns = { "node_modules" },
-                    mappings = { i = { ["<C-u>"] = false } },
-                },
-            })
+			require("telescope").setup({
+				defaults = {
+					file_ignore_patterns = { "node_modules" },
+					mappings = { i = { ["<C-u>"] = false } },
+				},
+			})
 
-            keymap.set("n", "<C-p>", builtin.find_files, {})
-            keymap.set("n", "<leader>ps", function()
-                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-            end)
-
+			keymap.set("n", "<C-p>", builtin.find_files, {})
+			keymap.set("n", "<leader>ps", function()
+				builtin.grep_string({ search = vim.fn.input("Grep > ") })
+			end)
+			keymap.set("n", "<leader>pr", function()
+				vim.cmd("Telescope oldfiles")
+			end)
 		end,
 	},
 	{

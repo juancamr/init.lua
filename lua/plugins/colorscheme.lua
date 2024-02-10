@@ -7,8 +7,12 @@ return {
 	lazy = false,
 	priority = 1000,
 	config = function()
-		require("rose-pine").setup({ disable_background = true })
+		local rose_pine_opts = {
+			disable_background = true,
+			styles = { italic = false },
+		}
+		require("rose-pine").setup(rose_pine_opts)
 		require("gruvbox").setup({ transparent_mode = true })
-        vim.cmd.colorscheme("rose-pine")
+		vim.cmd.colorscheme("rose-pine")
 	end,
 }
