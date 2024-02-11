@@ -32,9 +32,11 @@ keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left
 keymap.set("n", "<leader>u", cmd.UndotreeToggle)
 
 keymap.set("n", "<C-S>", "<cmd>wa<CR>")
-keymap.set("i", "<C-S>", "<Esc><cmd>wa<CR>")
+keymap.set("i", "<C-S>", "<cmd>wa<CR>")
+
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("i", "<C-h>", "<C-w>")
+
 keymap.set("n", "<leader>q", "<cmd>q<CR>")
 keymap.set("n", "<Tab>", ";")
-
+keymap.set("n", "<leader>l", "aconsole.log()<C-c>i")

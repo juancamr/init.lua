@@ -23,7 +23,7 @@ return {
 				highlight_git = false,
 				highlight_opened_files = "none",
 				indent_markers = { enable = false },
-				icons = { show = { git = false, folder = false, file = false } },
+				icons = { show = { folder = false } },
 			},
 		})
 
@@ -32,7 +32,6 @@ return {
 			vim.cmd("edit " .. file.fname)
 		end)
 
-		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFile<CR>")
-		-- vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFile<CR><C-w>o")
+		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
 	end,
 }

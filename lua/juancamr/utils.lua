@@ -8,30 +8,21 @@ M.formatters = {
 	prettierd = "prettierd",
 }
 
-M.treesitter_languages = {
-	"javascript",
-	"typescript",
-	"tsx",
-	"astro",
-	"python",
-	"lua",
-	"cpp",
-	"css",
-	"html",
-	"json",
-}
+M.treesitter_languages = { "javascript", "typescript", "python", "lua", "cpp" }
 
-M.lsp_servers = {
-	"lua_ls",
-	"pyright",
-	"tsserver",
-	"clangd",
-	"astro",
-	"html",
-	"htmx",
-}
+local function get_lsp_servers()
+	local extra_lsp_exists, _ = pcall(require, "juancamr.lsp")
+	local lsp_servers = { "lua_ls", "pyright", "tsserver", "clangd" }
+	if extra_lsp_exists then
+		local extra_lsp = require("juancamr.lsp")
+		for _, server in pairs(extra_lsp) do
+			table.insert(lsp_servers, server)
+		end
+	end
+	return lsp_servers
+end
+M.lsp_servers = get_lsp_servers()
 
--- functions
 M.get_formatters_list = function()
 	local formatters = {}
 	for _, formatter in pairs(M.formatters) do

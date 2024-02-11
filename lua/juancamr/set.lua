@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-opt.guicursor = ""
 opt.nu = true
 opt.relativenumber = true
 
@@ -31,3 +30,5 @@ opt.updatetime = 50
 opt.colorcolumn = "80"
 opt.splitright = true
 opt.fillchars = { eob = " ", vert = " " }
+
+opt.winbar = "      %f %m"
