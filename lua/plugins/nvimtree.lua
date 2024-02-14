@@ -32,6 +32,6 @@ return {
 			vim.cmd("edit " .. file.fname)
 		end)
 
-		vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>")
+		vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc><cmd>NvimTreeFindFileToggle<CR>")
 	end,
 }

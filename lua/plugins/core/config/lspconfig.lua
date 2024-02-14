@@ -15,8 +15,6 @@ local keymap = vim.keymap
 local diagnostic = vim.diagnostic
 
 keymap.set("n", "<leader>e", diagnostic.open_float)
-keymap.set("n", "[d", diagnostic.goto_prev)
-keymap.set("n", "]d", diagnostic.goto_next)
 keymap.set("n", "<leader>vl", diagnostic.setloclist)
 
 vim.api.nvim_create_autocmd("LspAttach", {
