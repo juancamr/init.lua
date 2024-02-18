@@ -23,7 +23,7 @@ return {
 				highlight_git = false,
 				highlight_opened_files = "none",
 				indent_markers = { enable = false },
-				icons = { show = { folder = false } },
+				icons = { show = { folder = false, file = false } },
 			},
 		})
 
