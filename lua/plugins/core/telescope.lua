@@ -16,12 +16,9 @@ return {
 				},
 			})
 
-			keymap.set("n", "<C-p>", builtin.find_files, {})
+			keymap.set("n", "<C-p>", "<cmd>Telescope find_files disable_devicons=true<CR>", {})
 			keymap.set("n", "<leader>ps", function()
 				builtin.grep_string({ search = vim.fn.input("Grep > ") })
-			end)
-			keymap.set("n", "<leader>pr", function()
-				vim.cmd("Telescope oldfiles")
 			end)
 		end,
 	},

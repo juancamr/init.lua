@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = "BufWrite",
+	lazy = false,
 	config = function()
 		local fs = require("juancamr.utils").formatters
 		local conform = require("conform")
@@ -11,10 +11,6 @@ return {
 				python = { "ruff_format", "ruff_fix" },
 				javascript = { fs.prettierd },
 				typescript = { fs.prettierd },
-			},
-			format_on_save = {
-				timeout_ms = 500,
-				lsp_fallback = true,
 			},
 		})
 

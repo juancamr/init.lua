@@ -39,5 +39,7 @@ keymap.set("n", "<leader>q", "<cmd>q<CR>")
 keymap.set("n", "<Tab>", ";")
 keymap.set("n", "<leader>l", "aconsole.log()<C-c>i")
 
+keymap.set("n", "<C-A-t>", "<cmd>vsplit<CR>")
+
 keymap.set("n", "<C-g>", "<C-w>h")
 keymap.set("n", "<C-l>", "<C-w>l")
