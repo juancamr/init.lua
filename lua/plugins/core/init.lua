@@ -41,6 +41,8 @@ return {
 		lazy = false,
 		config = function()
 			vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>4j")
+            vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+            vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
 		end,
 	},
     -- fuzy finder
@@ -52,13 +54,6 @@ return {
 		lazy = false,
 		config = function()
 			require("plugins.core.config.telescope")
-		end,
-	},
-    -- file explorer
-	{
-		"nvim-tree/nvim-web-devicons",
-		config = function()
-			require("plugins.core.config.devicons")
 		end,
 	},
     -- syntax highlight
@@ -88,6 +83,9 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
+            require("github-theme").setup({
+                options = { transparent = true }
+            })
             vim.cmd.colorscheme("github_dark_default")
 		end,
 	},
@@ -96,7 +94,6 @@ return {
     -- problems panel
 	{
 		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
 		lazy = false,
 		config = function()
 			require("plugins.core.config.trouble")

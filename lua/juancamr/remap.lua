@@ -1,5 +1,4 @@
 local keymap = vim.keymap
-local cmd = vim.cmd
 
 vim.g.mapleader = " "
 
@@ -18,7 +17,7 @@ keymap.set("i", "<C-c>", "<Esc>")
 keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/.local/bin/tmux-sessionizer<CR>")
 keymap.set("n", "<C-z>", "u")
 keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR><C-w>h")
+keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
 keymap.set("i", "<C-BS>", "<C-w>")
 keymap.set("i", "<C-h>", "<C-w>")
 keymap.set("n", "<Tab>", ";")
@@ -29,3 +28,6 @@ keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 keymap.set("n", "<C-s>", "<cmd>wa<CR>")
 keymap.set("i", "<C-s>", "<Esc><cmd>wa<CR>")
+keymap.set("v", "<C-s>", "<Esc><cmd>wa<CR>")
+
+keymap.set("n", "<leader>rc", "<cmd>bprev<CR>")
