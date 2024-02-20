@@ -1,5 +1,4 @@
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
@@ -20,5 +19,4 @@ cmp.setup({
         ["<C-Space>"] = cmp.mapping.complete(),
     }),
     completion = { completeopt = "menu,menuone,noinsert" },
-    formatting = { format = lspkind.cmp_format() },
 })

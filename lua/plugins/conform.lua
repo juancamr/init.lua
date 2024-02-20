@@ -14,7 +14,6 @@ return {
 			},
 		})
 
-		-- kemap for format the code
 		local options = { noremap = true, silent = true }
 		vim.keymap.set({ "n", "i" }, "<C-A-l>", function()
 			conform.format({

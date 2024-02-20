@@ -1,10 +1,8 @@
 return {
 	"ThePrimeagen/harpoon",
 	branch = "harpoon2",
+    lazy = false,
 	dependencies = { "nvim-lua/plenary.nvim" },
-	init = function()
-		require("juancamr.utils").lazy_load("harpoon")
-	end,
 	config = function()
 		local harpoon = require("harpoon")
 		local keymap = vim.keymap

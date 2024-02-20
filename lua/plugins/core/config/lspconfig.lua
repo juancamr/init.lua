@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		keymap.set("n", "K", vim.lsp.buf.hover, opts)
 		keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
 		keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
 		keymap.set("n", "<leader>wl", function()

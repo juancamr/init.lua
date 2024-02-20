@@ -1,9 +1,105 @@
-local lsp = require("plugins.core.lsp")
-local theme = require("plugins.core.theme")
-local fugitive = require("plugins.core.fugitive")
-local mason = require("plugins.core.mason")
-local telescope = require("plugins.core.telescope")
-local treesitter = require("plugins.core.treesitter")
-local undotree = require("plugins.core.undotree")
-
-return { lsp, theme, fugitive, mason, telescope, treesitter, undotree }
+return {
+    -- lsp
+	{
+		"neovim/nvim-lspconfig",
+		init = function()
+			require("juancamr.utils").lazy_load("nvim-lspconfig")
+		end,
+		dependencies = { "ray-x/lsp_signature.nvim" },
+		config = function()
+			require("plugins.core.config.lspconfig")
+		end,
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-path",
+			"L3MON4D3/LuaSnip",
+		},
+		config = function()
+			require("plugins.core.config.cmp")
+		end,
+	},
+    -- installer dependencies
+	{
+		"williamboman/mason.nvim",
+		lazy = false,
+		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+		dependencies = {
+			"williamboman/mason-lspconfig.nvim",
+			"WhoIsSethDaniel/mason-tool-installer.nvim",
+		},
+		config = function()
+			require("plugins.core.config.mason")
+		end,
+	},
+    -- git management
+	{
+		"tpope/vim-fugitive",
+		lazy = false,
+		config = function()
+			vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>4j")
+		end,
+	},
+    -- fuzy finder
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		cmd = "Telescope",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = false,
+		config = function()
+			require("plugins.core.config.telescope")
+		end,
+	},
+    -- file explorer
+	{
+		"nvim-tree/nvim-web-devicons",
+		config = function()
+			require("plugins.core.config.devicons")
+		end,
+	},
+    -- syntax highlight
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		init = function()
+			require("juancamr.utils").lazy_load("nvim-treesitter")
+		end,
+		config = function()
+			require("plugins.core.config.treesitter")
+		end,
+	},
+	{
+		"nvim-treesitter/nvim-treesitter-context",
+		init = function()
+			require("juancamr.utils").lazy_load("nvim-treesitter-context")
+		end,
+		config = function()
+			require("treesitter-context").setup()
+		end,
+	},
+    -- colorscheme
+	{
+		"projekt0n/github-nvim-theme",
+		lazy = false,
+		priority = 1000,
+		config = function()
+            vim.cmd.colorscheme("github_dark_default")
+		end,
+	},
+    -- undo history
+	{ "mbbill/undotree", cmd = "UndotreeToggle" },
+    -- problems panel
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
+		config = function()
+			require("plugins.core.config.trouble")
+		end,
+	},
+}
