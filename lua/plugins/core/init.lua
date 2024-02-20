@@ -1,4 +1,5 @@
 return {
+    -- lsp
 	{
 		"neovim/nvim-lspconfig",
 		init = function()
@@ -22,6 +23,7 @@ return {
 			require("plugins.core.config.cmp")
 		end,
 	},
+    -- installer dependencies
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
@@ -34,13 +36,15 @@ return {
 			require("plugins.core.config.mason")
 		end,
 	},
+    -- git management
 	{
 		"tpope/vim-fugitive",
 		lazy = false,
 		config = function()
-			vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
+			vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>4j")
 		end,
 	},
+    -- fuzy finder
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -51,12 +55,14 @@ return {
 			require("plugins.core.config.telescope")
 		end,
 	},
+    -- file explorer
 	{
 		"nvim-tree/nvim-web-devicons",
 		config = function()
 			require("plugins.core.config.devicons")
 		end,
 	},
+    -- syntax highlight
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -77,14 +83,24 @@ return {
 			require("treesitter-context").setup()
 		end,
 	},
+    -- colorscheme
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("github-theme").setup()
-			vim.cmd("colorscheme github_dark_default")
+            vim.cmd.colorscheme("github_dark_default")
 		end,
 	},
+    -- undo history
 	{ "mbbill/undotree", cmd = "UndotreeToggle" },
+    -- problems panel
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = false,
+		config = function()
+			require("plugins.core.config.trouble")
+		end,
+	},
 }
