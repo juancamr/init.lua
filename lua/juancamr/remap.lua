@@ -31,3 +31,4 @@ keymap.set("i", "<C-s>", "<Esc><cmd>wa<CR>")
 keymap.set("v", "<C-s>", "<Esc><cmd>wa<CR>")
 
 keymap.set("n", "<leader>rc", "<cmd>bprev<CR>")
+keymap.set("i", "<C-t>", "<nop>")

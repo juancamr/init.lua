@@ -11,7 +11,6 @@ return {
 
 			vim.keymap.del("n", "<C-e>", { buffer = bufnr })
 			vim.keymap.del("n", "<C-t>", { buffer = bufnr })
-			vim.keymap.del("n", "<Tab>", { buffer = bufnr })
 		end
 
 		require("nvim-tree").setup({
@@ -33,6 +32,6 @@ return {
 			vim.cmd("edit " .. file.fname)
 		end)
 
-		vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc><cmd>NvimTreeFindFile<CR><C-w>o")
+		vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc><cmd>NvimTreeFindFileToggle<CR>")
 	end,
 }
