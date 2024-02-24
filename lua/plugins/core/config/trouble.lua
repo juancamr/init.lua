@@ -1,4 +1,4 @@
-require("trouble").setup()
+require("trouble").setup({ icons = false })
 
 local keymap = vim.keymap
 keymap.set("n", "<leader>tr", "<cmd>TroubleToggle<cr>")

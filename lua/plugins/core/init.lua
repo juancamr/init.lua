@@ -1,5 +1,5 @@
 return {
-    -- lsp
+	-- lsp
 	{
 		"neovim/nvim-lspconfig",
 		init = function()
@@ -22,7 +22,7 @@ return {
 			require("plugins.core.config.cmp")
 		end,
 	},
-    -- installer dependencies
+	-- installer dependencies
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
@@ -35,17 +35,24 @@ return {
 			require("plugins.core.config.mason")
 		end,
 	},
-    -- git management
+	-- git
 	{
 		"tpope/vim-fugitive",
 		lazy = false,
 		config = function()
 			vim.keymap.set("n", "<leader>gs", "<cmd>Git<CR>4j")
-            vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
-            vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
+			vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>")
+			vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>")
 		end,
 	},
-    -- fuzy finder
+	{
+		"lewis6991/gitsigns.nvim",
+		lazy = false,
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	-- fuzy finder
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
@@ -56,7 +63,7 @@ return {
 			require("plugins.core.config.telescope")
 		end,
 	},
-    -- syntax highlight
+	-- syntax highlight
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
@@ -77,21 +84,21 @@ return {
 			require("treesitter-context").setup()
 		end,
 	},
-    -- colorscheme
+	-- colorscheme
 	{
 		"projekt0n/github-nvim-theme",
 		lazy = false,
 		priority = 1000,
 		config = function()
-            require("github-theme").setup({
-                options = { transparent = true }
-            })
-            vim.cmd.colorscheme("github_dark_default")
+			require("github-theme").setup({
+				options = { transparent = true },
+			})
+			vim.cmd.colorscheme("github_dark_default")
 		end,
 	},
-    -- undo history
+	-- undo history
 	{ "mbbill/undotree", cmd = "UndotreeToggle" },
-    -- problems panel
+	-- problems panel
 	{
 		"folke/trouble.nvim",
 		lazy = false,
