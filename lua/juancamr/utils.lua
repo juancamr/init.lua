@@ -1,63 +1,32 @@
 local M = {}
 
--- constants
-M.formatters = {
-	stylua = "stylua",
-	ruff = "ruff",
-	prettier = "prettier",
-	prettierd = "prettierd",
-}
-
-M.treesitter_languages = { "javascript", "typescript", "python", "lua", "cpp" }
-
-local function get_lsp_servers()
-	local extra_lsp_exists, _ = pcall(require, "juancamr.lsp")
-	local lsp_servers = { "lua_ls", "pyright", "tsserver", "clangd" }
-	if extra_lsp_exists then
-		local extra_lsp = require("juancamr.lsp")
-		for _, server in pairs(extra_lsp) do
-			table.insert(lsp_servers, server)
-		end
-	end
-	return lsp_servers
-end
-M.lsp_servers = get_lsp_servers()
-
-M.get_formatters_list = function()
-	local formatters = {}
-	for _, formatter in pairs(M.formatters) do
-		table.insert(formatters, formatter)
-	end
-	return formatters
-end
-
+M.treesitter_languages = { "javascript", "typescript", "python", "lua", "cpp", "go" }
+M.lsp_servers = { "clangd", "lua_ls", "pyright", "tsserver", "gopls" }
 M.lazy_load = function(plugin)
-	local vim = vim
-	vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
-		group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
-		callback = function()
-			local file = vim.fn.expand("%")
-			local condition = file ~= "NvimTree_1" and file ~= "[lazy]" and file ~= ""
+    local vim = vim
+    vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+        group = vim.api.nvim_create_augroup("BeLazyOnFileOpen" .. plugin, {}),
+        callback = function()
+            local file = vim.fn.expand("%")
+            local condition = file ~= "NvimTree_1" and file ~= "[lazy]" and file ~= ""
 
-			if condition then
-				vim.api.nvim_del_augroup_by_name("BeLazyOnFileOpen" .. plugin)
+            if condition then
+                vim.api.nvim_del_augroup_by_name("BeLazyOnFileOpen" .. plugin)
 
-				-- dont defer for treesitter as it will show slow highlighting
-				-- This deferring only happens only when we do "nvim filename"
-				if plugin ~= "nvim-treesitter" then
-					vim.schedule(function()
-						require("lazy").load({ plugins = plugin })
+                if plugin ~= "nvim-treesitter" then
+                    vim.schedule(function()
+                        require("lazy").load({ plugins = plugin })
 
-						if plugin == "nvim-lspconfig" then
-							vim.cmd("silent! do FileType")
-						end
-					end, 0)
-				else
-					require("lazy").load({ plugins = plugin })
-				end
-			end
-		end,
-	})
+                        if plugin == "nvim-lspconfig" then
+                            vim.cmd("silent! do FileType")
+                        end
+                    end, 0)
+                else
+                    require("lazy").load({ plugins = plugin })
+                end
+            end
+        end,
+    })
 end
 
 return M

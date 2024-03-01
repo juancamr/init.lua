@@ -9,7 +9,7 @@ return {
 
 		harpoon:setup({ settings = { save_on_toggle = true } })
 
-		keymap.set("n", "<leader>a", function()
+		keymap.set("n", "<C-g>", function()
 			harpoon:list():append()
 		end)
 		keymap.set("n", "<C-e>", function()

@@ -1,8 +1,8 @@
 # plugins
 
 +  cmp-nvim-lsp
++  cmp-path
 +  copilot.vim
-+  github-nvim-theme
 +  harpoon
 +  lazy.nvim
 +  mason-lspconfig.nvim
@@ -14,16 +14,12 @@
 +  telescope.nvim
 +  trouble.nvim
 +  vim-fugitive
-+  cmp-path
 +  LuaSnip
-+  nvim-autopairs
 +  nvim-cmp
 +  undotree 
-+  gitsigns.nvim
-+  mason-tool-installer.nvim
-+  conform.nvim
 +  nvim-tree.lua
-+  lsp_signature.nvim
-+  lualine.nvim
++  gruvbox.nvim
++  github-nvim-theme
++  rose-pine
 
-Cantidad: 25
+Cantidad: 21
