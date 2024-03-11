@@ -22,9 +22,8 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 opt.colorcolumn = "80"
 opt.splitright = true
-opt.winbar = "   %t %m"
-opt.cursorline = true
+-- opt.cursorline = true
 -- opt.fillchars = { eob = " ", vert = " " }
 -- vim.cmd([[highlight StatusLine guibg=#171B22 guifg=white]])
-vim.cmd([[highlight CursorLine guibg=#292929]])
+-- vim.cmd([[highlight CursorLine guibg=#292929]])
 -- opt.fillchars = { eob = " " }

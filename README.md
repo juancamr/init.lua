@@ -19,7 +19,13 @@
 +  undotree 
 +  nvim-tree.lua
 +  gruvbox.nvim
-+  github-nvim-theme
-+  rose-pine
++  nvim-surround
++  nvim-autopairs
++  lsp_signature
++  mason-tool-installer
++  nvim-ts-autotag
++  Comment
++  conform
++  gitsigns
 
-Cantidad: 21
+Cantidad: 25

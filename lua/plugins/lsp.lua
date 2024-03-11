@@ -3,7 +3,7 @@ return {
     init = function()
         require("juancamr.utils").lazy_load("nvim-lspconfig")
     end,
-    dependencies = {"ray-x/lsp_signature.nvim"},
+    dependencies = { "ray-x/lsp_signature.nvim" },
     config = function()
         local servers = require("juancamr.utils").lsp_servers
         local lspconfig = require("lspconfig")
