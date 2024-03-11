@@ -22,14 +22,9 @@ opt.isfname:append("@-@")
 opt.updatetime = 50
 opt.colorcolumn = "80"
 opt.splitright = true
-
--- highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-    desc = 'Highlight when yanking (copying) text',
-    group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-})
-
+opt.winbar = "   %t %m"
+opt.cursorline = true
+-- opt.fillchars = { eob = " ", vert = " " }
 -- vim.cmd([[highlight StatusLine guibg=#171B22 guifg=white]])
+vim.cmd([[highlight CursorLine guibg=#292929]])
+-- opt.fillchars = { eob = " " }

@@ -25,12 +25,7 @@ return {
                 indent_markers = { enable = false },
                 icons = {
                     show = { folder = false, file = false },
-                    glyphs = {
-                        folder = {
-                            arrow_open = "-",
-                            arrow_closed= "+",
-                        }
-                    }
+                    glyphs = { folder = { arrow_open = "-", arrow_closed= "+" } }
                 },
             },
         })
@@ -39,6 +34,6 @@ return {
         api.events.subscribe(api.events.Event.FileCreated, function(file)
             vim.cmd("edit " .. file.fname)
         end)
-        vim.keymap.set({ "n", "i" }, "<C-b>", "<Esc><cmd>NvimTreeFindFileToggle<CR><C-w>o")
+        vim.keymap.set({ "n", "i" }, "<A-e>", "<Esc><cmd>NvimTreeFindFileToggle<CR><C-w>o")
     end,
 }

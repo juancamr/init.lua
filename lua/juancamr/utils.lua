@@ -1,7 +1,10 @@
 local M = {}
 
-M.treesitter_languages = { "javascript", "typescript", "python", "lua", "cpp", "go" }
-M.lsp_servers = { "clangd", "lua_ls", "pyright", "tsserver", "gopls" }
+M.treesitter_languages = { "javascript", "typescript", "python", "lua", "cpp" }
+
+M.lsp_servers = { "clangd", "lua_ls", "pyright", "tsserver", "gopls", "cssls",
+    "tailwindcss", "astro" }
+
 M.lazy_load = function(plugin)
     local vim = vim
     vim.api.nvim_create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {

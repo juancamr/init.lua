@@ -14,3 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 require("juancamr.remap")
 require("lazy").setup("plugins", { defaults = { lazy = true } })
 require("juancamr.set")
+
+vim.api.nvim_create_autocmd('TextYankPost', {
+    group = vim.api.nvim_create_augroup('juancamr-highlight-yank', { clear = true }),
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 40,
+        })
+    end,
+})
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25

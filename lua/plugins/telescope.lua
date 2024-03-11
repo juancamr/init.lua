@@ -6,12 +6,13 @@ return {
     lazy = false,
     config = function()
         local builtin = require("telescope.builtin")
+        local action_set = require("telescope.actions.set")
         local keymap = vim.keymap
 
         require("telescope").setup({
             defaults = {
                 file_ignore_patterns = { "node_modules", "build" },
-                mappings = { i = { ["<C-u>"] = false } },
+                mappings = { i = { ["<C-u>"] = false, } },
             },
         })
 
