@@ -3,7 +3,7 @@
 +  cmp-nvim-lsp
 +  cmp-path
 +  copilot.vim
-+  harpoon
++  bufferline
 +  lazy.nvim
 +  mason-lspconfig.nvim
 +  mason.nvim
